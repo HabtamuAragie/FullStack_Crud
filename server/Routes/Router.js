@@ -16,7 +16,8 @@ router.post("/insert-data-user", (req, res) => {
     db.query("SELECT * FROM users WHERE email = ?", email, (err, result) => {
       if (result.length) {
         res.status(422).json("This Data is Already Exist");
-      } else {
+      } 
+else {
         db.query(
           "INSERT INTO users SET ?",
           { name, email, age, mobile, work, Address, description },
@@ -30,7 +31,8 @@ router.post("/insert-data-user", (req, res) => {
         );
       }
     });
-  } catch (error) {
+  }
+  catch (error) {
     res.status(422).json(error);
   }
 });
